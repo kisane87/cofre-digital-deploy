@@ -3,41 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cofre Tech - Guilherme</title>
+    <title>Terminal de Segurança | Guilherme</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <canvas id="matrix"></canvas>
+    <canvas id="matrix-canvas"></canvas>
 
-    <div class="container">
-        <h1>SISTEMA DE MONITORAMENTO V.2.0</h1>
-        
-        <div class="monitoramento">
-            <div class="card">
-                <p>CPU: RYZEN 5 4500</p>
-                <div class="barra-fundo"><div id="cpu-bar" class="barra-progresso"></div></div>
+    <div class="main-container">
+        <div class="glass-vault" id="vault-box">
+            <header>
+                <div class="status-dot"></div>
+                <h1 id="main-title">SISTEMA DE COFRE CRIPTOGRAFADO v2.0</h1>
+            </header>
+            
+            <div class="lock-display">
+                <div class="lock-glow-circle">
+                    <div id="lock-status">🔒</div>
+                </div>
             </div>
-            <div class="card">
-                <p>GPU: GTX 1060 6GB</p>
-                <div class="barra-fundo"><div id="gpu-bar" class="barra-progresso"></div></div>
+
+            <!-- ACESSO -->
+            <div id="auth-area">
+                <div class="input-group">
+                    <input type="password" id="pass-input" placeholder="CÓDIGO" maxlength="3">
+                    <button id="btn-acessar">ENTRAR</button>
+                </div>
+                <div class="security-info">
+                    <span id="chance-text">TENTATIVAS RESTANTES: 3</span>
+                </div>
+            </div>
+
+            <!-- HARDWARE DASHBOARD (MAIOR) -->
+            <div id="pc-specs" class="hidden">
+                <div class="grid-specs">
+                    <div class="spec-card">
+                        <label>PROCESSADOR</label>
+                        <h3>Ryzen 5 4500</h3>
+                        <div class="live-data">
+                            <span>USO: <b id="cpu-usage">--</b></span>
+                            <span>TEMP: <b id="cpu-temp">--</b></span>
+                        </div>
+                    </div>
+                    <div class="spec-card">
+                        <label>PLACA DE VÍDEO</label>
+                        <h3>GTX 1060 White</h3>
+                        <div class="live-data">
+                            <span>USO: <b id="gpu-usage">--</b></span>
+                            <span>TEMP: <b id="gpu-temp">--</b></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="sys-info">ESTADO: OPERACIONAL | FREQUÊNCIA: 120Hz</div>
+                <button onclick="location.reload()" class="btn-terminal-exit">ENCERRAR SESSÃO</button>
             </div>
         </div>
+    </div>
 
-        <hr class="linha">
-
-        <div class="ferramentas">
-            <div class="box">
-                <h3>GERADOR DE CHAVES</h3>
-                <p id="senha-gerada">########</p>
-                <button onclick="gerarSenha()">GERAR SENHA</button>
-            </div>
-
-            <div class="box">
-                <h3>SCANNER DE SISTEMA</h3>
-                <button onclick="fazerScan()">INICIAR SCAN</button>
-                <div id="resultado-scan">Aguardando...</div>
-            </div>
-        </div>
+    <!-- BOOT LOG WIN98 -->
+    <div id="win98-boot-log" class="boot-log-box">
+        <div class="boot-line">Microsoft(R) Windows 98</div>
+        <div id="dynamic-boot-lines"></div>
     </div>
 
     <script src="script.js"></script>
