@@ -2,68 +2,43 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Cofre do Guilherme</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cofre Tech - Guilherme</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <canvas id="matrix"></canvas>
-    
-    <div id="terminal-log">
-        <div class="log-texto">> [SISTEMA] Aguardando credenciais...</div>
-    </div>
 
-    <div id="alerta-invasao">
-        <h1>⚠️ SISTEMA BLOQUEADO ⚠️</h1>
-        <p class="blink">MODO AUTO-DESTRUIÇÃO ATIVADO</p>
-    </div>
-
-    <div id="login" class="caixa-principal">
-        <div class="moldura-neon">
-            <img src="cadeado.png" class="cadeado-neon">
-            <h1>Acesso Restrito</h1>
-            <input type="password" id="senha" placeholder="Senha...">
-            <button onclick="abrir()">ACESSAR</button>
-        </div>
-    </div>
-
-    <div id="progresso">
-        <h2 class="carregando-texto">Escaneando Hardware...</h2>
-        <div class="barra-container">
-            <div id="barra-neon"></div>
-        </div>
-    </div>
-
-    <div id="conteudo">
-    <div class="specs">
-        <h2 class="titulo-painel">SISTEMA DE MONITORAMENTO V.1.0</h2>
+    <div class="container">
+        <h1>SISTEMA DE MONITORAMENTO V.2.0</h1>
         
-        <div class="monitor-grid">
-            <div class="monitor-card">
-                <p class="nome-peca">AMD Ryzen 5 4500</p>
-                <div class="barra-mini">
-                    <div id="uso-cpu" class="barra-fill"></div>
-                </div>
-                <div class="info-extra">
-                    <span>USO: <span id="txt-cpu">0%</span></span>
-                    <span id="temp-cpu" class="temp-val">45°C</span>
-                </div>
+        <div class="monitoramento">
+            <div class="card">
+                <p>CPU: RYZEN 5 4500</p>
+                <div class="barra-fundo"><div id="cpu-bar" class="barra-progresso"></div></div>
             </div>
-
-            <div class="monitor-card">
-                <p class="nome-peca">NVIDIA GTX 1060 6GB</p>
-                <div class="barra-mini">
-                    <div id="uso-gpu" class="barra-fill"></div>
-                </div>
-                <div class="info-extra">
-                    <span>USO: <span id="txt-gpu">0%</span></span>
-                    <span id="temp-gpu" class="temp-val">52°C</span>
-                </div>
+            <div class="card">
+                <p>GPU: GTX 1060 6GB</p>
+                <div class="barra-fundo"><div id="gpu-bar" class="barra-progresso"></div></div>
             </div>
         </div>
 
-        <button class="btn-fechar" onclick="fechar()">ENCERRAR SESSÃO</button>
+        <hr class="linha">
+
+        <div class="ferramentas">
+            <div class="box">
+                <h3>GERADOR DE CHAVES</h3>
+                <p id="senha-gerada">########</p>
+                <button onclick="gerarSenha()">GERAR SENHA</button>
+            </div>
+
+            <div class="box">
+                <h3>SCANNER DE SISTEMA</h3>
+                <button onclick="fazerScan()">INICIAR SCAN</button>
+                <div id="resultado-scan">Aguardando...</div>
+            </div>
+        </div>
     </div>
-</div>
 
     <script src="script.js"></script>
 </body>
