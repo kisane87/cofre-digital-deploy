@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cofre do Guilherme</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <canvas id="matrix"></canvas>
+    
+    <div id="terminal-log">
+        <div class="log-texto">> [SISTEMA] Aguardando credenciais...</div>
+    </div>
+
+    <div id="alerta-invasao">
+        <h1>⚠️ SISTEMA BLOQUEADO ⚠️</h1>
+        <p class="blink">MODO AUTO-DESTRUIÇÃO ATIVADO</p>
+    </div>
+
+    <div id="login" class="caixa-principal">
+        <div class="moldura-neon">
+            <img src="{{ url_for('static', filename='cadeado.png') }}" class="cadeado-neon">
+            <h1>Acesso Restrito</h1>
+            <input type="password" id="senha" placeholder="Senha...">
+            <button onclick="abrir()">ACESSAR</button>
+        </div>
+    </div>
+
+    <div id="progresso">
+        <h2 class="carregando-texto">Escaneando Hardware...</h2>
+        <div class="barra-container">
+            <div id="barra-neon"></div>
+        </div>
+    </div>
+
+    <div id="conteudo">
+    <div class="specs">
+        <h2 class="titulo-painel">SISTEMA DE MONITORAMENTO V.1.0</h2>
+        
+        <div class="monitor-grid">
+            <div class="monitor-card">
+                <p class="nome-peca">AMD Ryzen 5 4500</p>
+                <div class="barra-mini">
+                    <div id="uso-cpu" class="barra-fill"></div>
+                </div>
+                <div class="info-extra">
+                    <span>USO: <span id="txt-cpu">0%</span></span>
+                    <span id="temp-cpu" class="temp-val">45°C</span>
+                </div>
+            </div>
+
+            <div class="monitor-card">
+                <p class="nome-peca">NVIDIA GTX 1060 6GB</p>
+                <div class="barra-mini">
+                    <div id="uso-gpu" class="barra-fill"></div>
+                </div>
+                <div class="info-extra">
+                    <span>USO: <span id="txt-gpu">0%</span></span>
+                    <span id="temp-gpu" class="temp-val">52°C</span>
+                </div>
+            </div>
+        </div>
+
+        <button class="btn-fechar" onclick="fechar()">ENCERRAR SESSÃO</button>
+    </div>
+</div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
