@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Cofre do Guilherme</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <canvas id="matrix"></canvas>
@@ -19,7 +19,7 @@
 
     <div id="login" class="caixa-principal">
         <div class="moldura-neon">
-            <img src="{{ url_for('static', filename='cadeado.png') }}" class="cadeado-neon">
+            <img src="cadeado.png" class="cadeado-neon">
             <h1>Acesso Restrito</h1>
             <input type="password" id="senha" placeholder="Senha...">
             <button onclick="abrir()">ACESSAR</button>
@@ -65,6 +65,6 @@
     </div>
 </div>
 
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script src="script.js"></script>
 </body>
 </html>
